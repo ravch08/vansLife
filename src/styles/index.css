@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-link {
+  @apply text-sm font-normal;
+}
+.active {
+  @apply font-medium text-orange-500;
+}
+
+.btn-category {
+  @apply rounded-sm  px-6 py-2 text-sm text-white;
+}

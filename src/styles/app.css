@@ -1,0 +1,31 @@
+#root {
+  width: 60%;
+  height: 100vh;
+  overflow-y: auto;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+#root::-webkit-scrollbar-track {
+  background: hsl(240, 100%, 99%);
+}
+
+#root::-webkit-scrollbar-thumb {
+  background: hsl(19, 100%, 70%);
+}
+
+#root::-webkit-scrollbar {
+  width: 8px;
+}
+
+body {
+  background-color: gainsboro;
+  /* height: 100vh; */
+}
+
+@supports (scrollbar-color: orange ghostwhite) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: orange ghostwhite;
+  }
+}

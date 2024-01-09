@@ -15,10 +15,10 @@ const Vans = () => {
     getVans();
   }, []);
 
-  const typeFiter = params.get("type");
+  const typeFilter = params.get("type");
 
-  const filteredVans = typeFiter
-    ? vans?.filter((item) => item.type === typeFiter)
+  const filteredVans = typeFilter
+    ? vans?.filter((item) => item.type === typeFilter)
     : vans;
 
   return (
@@ -36,7 +36,7 @@ const Vans = () => {
           <button
             onClick={() => setParams({ type: "simple" })}
             className={
-              typeFiter === "simple"
+              typeFilter === "simple"
                 ? "btn-category bg-orange-800"
                 : "btn-category bg-orange-300"
             }
@@ -46,7 +46,7 @@ const Vans = () => {
           <button
             onClick={() => setParams({ type: "rugged" })}
             className={
-              typeFiter === "rugged"
+              typeFilter === "rugged"
                 ? "btn-category bg-orange-800"
                 : "btn-category bg-orange-300"
             }
@@ -56,7 +56,7 @@ const Vans = () => {
           <button
             onClick={() => setParams({ type: "luxury" })}
             className={
-              typeFiter === "luxury"
+              typeFilter === "luxury"
                 ? "btn-category bg-orange-800"
                 : "btn-category bg-orange-300"
             }
@@ -72,12 +72,14 @@ const Vans = () => {
           {filteredVans?.map((van) => {
             return (
               <VanItem
-                key={van.id}
                 id={van.id}
+                key={van.id}
                 title={van.name}
-                category={van.type}
                 price={van.price}
+                category={van.type}
                 imgSrc={van.imageUrl}
+                typeFilter={typeFilter}
+                searchParams={params}
               />
             );
           })}

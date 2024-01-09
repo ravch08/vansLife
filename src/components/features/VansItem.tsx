@@ -1,8 +1,22 @@
 import { Link } from "react-router-dom";
 
-const VansItem = ({ id, imgSrc, title, category, price }) => {
+const VansItem = ({
+  id,
+  imgSrc,
+  title,
+  category,
+  price,
+  searchParams,
+  typeFilter,
+}) => {
+  console.log(searchParams);
+
   return (
-    <Link to={id} className="mb-8 w-[45%] rounded-sm bg-orange-100">
+    <Link
+      to={id}
+      state={{ filter: `?${searchParams.toString()}`, type: typeFilter }}
+      className="mb-8 w-[45%] rounded-sm bg-orange-100"
+    >
       <figure>
         <img src={imgSrc} alt={title} className="rounded-sm" />
       </figure>

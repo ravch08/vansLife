@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 const VanDetails = () => {
   const { id } = useParams();
+  const location = useLocation();
+
+  console.log(location);
+
   const [van, setVan] = useState(null);
 
   useEffect(() => {
@@ -14,10 +18,15 @@ const VanDetails = () => {
     getVan();
   }, []);
 
+  const locationLink = location.state?.filter || "";
+  const filterItem = location.state?.type;
+
+  // const filterItem = location.state?.filter.split("=").at(-1);
+
   return (
     <main className="bg-white">
       <Link
-        to=".."
+        to={`..${locationLink}`}
         relative="path"
         className="flex items-center gap-2 px-8 pt-8 text-xs underline"
       >
@@ -33,7 +42,7 @@ const VanDetails = () => {
             clipRule="evenodd"
           />
         </svg>
-        Back to all vans
+        Back to {!filterItem ? "all" : filterItem} vans
       </Link>
 
       <section className="px-8 py-12">

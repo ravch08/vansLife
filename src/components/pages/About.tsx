@@ -28,7 +28,7 @@ const About = () => {
           <h4 className="font-semibold">Your van is ready!</h4>
 
           <Link
-            to="vans"
+            to="/vans"
             className="mt-6 inline-block rounded-md bg-black px-6 py-3 text-sm text-white"
           >
             Explore our vans

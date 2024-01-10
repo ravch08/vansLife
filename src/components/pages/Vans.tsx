@@ -1,7 +1,11 @@
 // import { useQuery } from "@tanstack/react-query";
 import { useLoaderData, useSearchParams } from "react-router-dom";
 import { VanItem, bannerVans } from "../utils/helper";
-// import { getVans } from "../utils/utility";
+import { getVans } from "../utils/utility";
+
+// [Check this issue]
+// https://github.com/remix-run/react-router/discussions/10856
+export const loader = () => getVans();
 
 const Vans = () => {
   // const { data, status } = useQuery({

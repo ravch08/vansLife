@@ -18,7 +18,8 @@ import {
   Vans,
 } from "./components/utils/helper";
 
-import { loader as vansLoader } from "./components/utils/utility.tsx";
+import { loader as vanDetailLoader } from "./components/pages/VanDetails";
+import { loader as vansLoader } from "./components/pages/Vans";
 
 import "./server";
 import "./styles/app.css";
@@ -42,7 +43,12 @@ const router = createBrowserRouter(
         loader={vansLoader}
         errorElement={<ErrorPage />}
       />
-      <Route path="vans/:id" element={<VanDetails />} />
+      <Route
+        path="vans/:id"
+        element={<VanDetails />}
+        loader={vanDetailLoader}
+        errorElement={<ErrorPage />}
+      />
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
       <Route path="*" element={<Page404 />} />

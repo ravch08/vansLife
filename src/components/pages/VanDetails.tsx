@@ -1,27 +1,18 @@
-import { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
+import { getVanDetail } from "../utils/utility";
+
+export const loader = ({ params }) => {
+  console.log(params);
+  return getVanDetail(params.id);
+};
 
 const VanDetails = () => {
-  const { id } = useParams();
   const location = useLocation();
 
-  // console.log(location);
-
-  const [van, setVan] = useState(null);
-
-  useEffect(() => {
-    async function getVan() {
-      const res = await fetch(`/api/vans/${id}`);
-      const data = await res.json();
-      setVan(data.vans);
-    }
-    getVan();
-  }, []);
+  const van = useLoaderData();
 
   const locationLink = location.state?.filter || "";
   const filterItem = location.state?.type;
-
-  // const filterItem = location.state?.filter.split("=").at(-1);
 
   return (
     <main className="bg-white">

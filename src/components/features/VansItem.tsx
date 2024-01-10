@@ -9,8 +9,6 @@ const VansItem = ({
   searchParams,
   typeFilter,
 }) => {
-  console.log(searchParams);
-
   return (
     <Link
       to={id}

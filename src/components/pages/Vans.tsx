@@ -1,19 +1,16 @@
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+// import { useQuery } from "@tanstack/react-query";
+import { useLoaderData, useSearchParams } from "react-router-dom";
 import { VanItem, bannerVans } from "../utils/helper";
+// import { getVans } from "../utils/utility";
 
 const Vans = () => {
-  const [vans, setVans] = useState(null);
-  const [params, setParams] = useSearchParams();
+  // const { data, status } = useQuery({
+  //   queryKey: ["vans"],
+  //   queryFn: getVans,
+  // });
 
-  useEffect(() => {
-    async function getVans() {
-      const response = await fetch("/api/vans");
-      const data = await response.json();
-      setVans(data.vans);
-    }
-    getVans();
-  }, []);
+  const [params, setParams] = useSearchParams();
+  const vans = useLoaderData();
 
   const typeFilter = params.get("type");
 
@@ -30,7 +27,7 @@ const Vans = () => {
       </section>
 
       <section className="bg-white px-8 py-12">
-        <h2 className="mb-8 text-4xl font-semibold">Explore our van options</h2>
+        <h2 className="font-h2 mb-8">Explore our van options</h2>
 
         <div className="mb-16 flex items-center gap-4">
           <button

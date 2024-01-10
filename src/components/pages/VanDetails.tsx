@@ -53,7 +53,7 @@ const VanDetails = () => {
         <span className="mt-8 inline-block rounded-sm bg-orange-300 px-6 py-2 text-xs font-semibold uppercase tracking-wider">
           {van?.type}
         </span>
-        <h2 className="py-6 text-4xl font-semibold">{van?.name}</h2>
+        <h2 className="font-h2">{van?.name}</h2>
         <p className="mb-8">
           <strong>${van?.price}</strong> /day
         </p>

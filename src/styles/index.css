@@ -12,3 +12,15 @@
 .btn-category {
   @apply rounded-sm  px-6 py-2 text-sm text-white;
 }
+
+.font-h2 {
+  @apply py-6 text-4xl font-semibold;
+}
+
+.btn-submit {
+  @apply mb-12 mt-8 w-full rounded-sm bg-orange-500 py-2 text-sm text-white transition-colors duration-500 ease-in-out hover:bg-orange-700;
+}
+
+.form-input {
+  @apply my-3 w-full bg-slate-100 px-4 py-2 outline-none placeholder:text-sm;
+}

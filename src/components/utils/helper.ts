@@ -8,8 +8,11 @@ export { default as Footer } from "../sections/Footer.tsx";
 export { default as Header } from "../sections/Header.tsx";
 
 export { default as About } from "../pages/About.tsx";
+export { default as ErrorPage } from "../pages/ErrorPage.tsx";
 export { default as Home } from "../pages/Home.tsx";
+export { default as Login } from "../pages/Login.tsx";
 export { default as Page404 } from "../pages/Page404.tsx";
+export { default as Register } from "../pages/Register.tsx";
 export { default as VanDetails } from "../pages/VanDetails.tsx";
 export { default as Vans } from "../pages/Vans.tsx";
 

@@ -5,7 +5,7 @@ const VanDetails = () => {
   const { id } = useParams();
   const location = useLocation();
 
-  console.log(location);
+  // console.log(location);
 
   const [van, setVan] = useState(null);
 

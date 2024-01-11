@@ -2,9 +2,13 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800">
-      <div className="container py-4 text-center text-sm text-white">
-        © <Link to="/">VANLIFE</Link>. ALll rights reserved!
+    <footer className="">
+      <div className="container mx-auto bg-gray-800 py-4 text-center text-sm text-white">
+        ©{" "}
+        <Link to="/" className="text-orange-500">
+          VANLIFE
+        </Link>{" "}
+        | All rights reserved!
       </div>
     </footer>
   );

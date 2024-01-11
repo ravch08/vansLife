@@ -1,6 +1,6 @@
 export { default as bannerAbout } from "../../assets/banner-about.jpg";
+export { default as bannerHome } from "../../assets/banner-home.jpg";
 export { default as bannerVans } from "../../assets/banner-vans.jpg";
-export { default as banner } from "../../assets/banner.jpg";
 
 export { default as VanItem } from "../features/VansItem.tsx";
 

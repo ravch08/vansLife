@@ -13,7 +13,7 @@ const VansItem = ({
     <Link
       to={id}
       state={{ filter: `?${searchParams.toString()}`, type: typeFilter }}
-      className="mb-8 w-[45%] rounded-sm bg-orange-100"
+      className="mb-8 w-[22%] rounded-sm bg-orange-100"
     >
       <figure>
         <img src={imgSrc} alt={title} className="rounded-sm" />

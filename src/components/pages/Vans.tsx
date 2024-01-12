@@ -8,11 +8,6 @@ import { getVans } from "../utils/utility";
 export const loader = () => getVans();
 
 const Vans = () => {
-  // const { data, status } = useQuery({
-  //   queryKey: ["vans"],
-  //   queryFn: getVans,
-  // });
-
   const [params, setParams] = useSearchParams();
   const vans = useLoaderData();
 

@@ -35,10 +35,10 @@ import { loader as hostVanDetailLoader } from "./components/sections/HostVansDet
 import "./server";
 import "./styles/app.css";
 
-const queryClient = new QueryClient({
+export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 5,
+      staleTime: 1000 * 60,
     },
   },
 });

@@ -1,21 +1,29 @@
 // import { useQuery } from "@tanstack/react-query";
-import { useLoaderData, useSearchParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { useSearchParams } from "react-router-dom";
+import { queryClient } from "../../App";
 import { VanItem, bannerVans } from "../utils/helper";
 import { getVans } from "../utils/utility";
 
-// [Check this issue]
-// https://github.com/remix-run/react-router/discussions/10856
-export const loader = () => getVans();
+export const loader = () => {
+  return queryClient.fetchQuery({
+    queryKey: ["vans"],
+    queryFn: getVans,
+  });
+};
 
 const Vans = () => {
   const [params, setParams] = useSearchParams();
-  const vans = useLoaderData();
+
+  const { data, status } = useQuery({
+    queryKey: ["vans"],
+    queryFn: getVans,
+  });
 
   const typeFilter = params.get("type");
-
   const filteredVans = typeFilter
-    ? vans?.filter((item) => item.type === typeFilter)
-    : vans;
+    ? data?.filter((item) => item.type === typeFilter)
+    : data;
 
   return (
     <main>
@@ -66,20 +74,23 @@ const Vans = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-6">
-            {filteredVans?.map((van) => {
-              return (
-                <VanItem
-                  id={van.id}
-                  key={van.id}
-                  title={van.name}
-                  price={van.price}
-                  category={van.type}
-                  imgSrc={van.imageUrl}
-                  typeFilter={typeFilter}
-                  searchParams={params}
-                />
-              );
-            })}
+            {status === "pending" ? <h2>Loading...</h2> : null}
+            {status === "success"
+              ? filteredVans?.map((van) => {
+                  return (
+                    <VanItem
+                      id={van.id}
+                      key={van.id}
+                      title={van.name}
+                      price={van.price}
+                      category={van.type}
+                      imgSrc={van.imageUrl}
+                      typeFilter={typeFilter}
+                      searchParams={params}
+                    />
+                  );
+                })
+              : null}
           </div>
         </div>
       </section>

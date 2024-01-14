@@ -29,7 +29,7 @@ const HostVansDetail = () => {
       </Link>
       <div className="w-full rounded-md bg-white p-8">
         <div className="flex items-start gap-8">
-          <figure className="w-[40%]">
+          <figure className="w-[36%]">
             <img src={hostVan.imageUrl} alt={hostVan.name} />
           </figure>
           <div className="flex w-[50%] flex-col py-2">

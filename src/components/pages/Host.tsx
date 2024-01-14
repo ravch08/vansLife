@@ -1,10 +1,6 @@
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 const Host = () => {
-  const params = useParams();
-
-  console.log(params);
-
   return (
     <main>
       <div className="container mx-auto h-[760px] bg-orange-100 px-8 py-12">
